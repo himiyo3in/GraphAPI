@@ -1,10 +1,6 @@
-# 参考情報 (GET)
-# https://www.c-sharpcorner.com/article/how-to-access-microsoft-teams-graph-api-in-powershell/
+# $clientId, $clientSecret, $tenantName、および各実行メソッド (GET, POST) 内の $URL, $postBody を編集ください
 
-# 参考情報 (POST)
-# https://www.sharepointeurope.com/getting-started-graph-api-powershell/
-
-############################### ここから テンプレ (Do Not Edit) ###############################
+############################### ここから テンプレ ###############################
 # Input Parameters  
 $clientId = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"        #アプリケーションID
 $clientSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"      #クライアント シークレット
@@ -17,7 +13,8 @@ $tokenBody = @{
     Client_Secret = $clientSecret
 }
 $tokenResponse = Invoke-RestMethod -Uri "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token" -Method POST -Body $tokenBody
-############################### ここまで テンプレ (Do Not Edit) ###############################
+$tokenResponse
+############################### ここまで テンプレ ###############################
 
 ############################### ここから GET メソッド ###############################
 # Get Method
@@ -28,22 +25,22 @@ $result
 ############################### ここまで GET メソッド ###############################
 
 ############################### ここから POST メソッド ###############################
-# # POST Method
-# $URL = "https://graph.microsoft.com/v1.0/groups"
+# POST Method
+$URL = "https://graph.microsoft.com/v1.0/groups"
 
-# $postBody = @'
-# {
-#     "description": "Self help community for library",
-#     "displayName": "Library Assist",
-#     "groupTypes": [
-#       "Unified"
-#     ],
-#     "mailEnabled": true,
-#     "mailNickname": "library",
-#     "securityEnabled": false
-# }
-# '@
+$postBody = @'
+{
+    "description": "Self help community for library",
+    "displayName": "Library Assist",
+    "groupTypes": [
+      "Unified"
+    ],
+    "mailEnabled": true,
+    "mailNickname": "library",
+    "securityEnabled": false
+}
+'@
 
-# $result = Invoke-RestMethod -Headers @{Authorization = "Bearer $($tokenResponse.access_token)"} -Uri $URL -Method POST -Body $postBody -ContentType 'application/json'
-# $result
+$result = Invoke-RestMethod -Headers @{Authorization = "Bearer $($tokenResponse.access_token)"} -Uri $URL -Method POST -Body $postBody -ContentType 'application/json'
+$result
 ############################### ここまで POST メソッド ###############################
