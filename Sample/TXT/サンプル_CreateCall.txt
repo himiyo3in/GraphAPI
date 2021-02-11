@@ -1,4 +1,4 @@
-# 変更箇所 1, 2 をお客様環境に合わせて設定ください
+# 変更箇所 1, 2 を環境に合わせて設定ください
 
 ###### 変更箇所 1 ######
 # ※ お客様環境で作成されておりますアプリケーションに合わせて、clientId, clientSecret, tenantName の部分を置き換えてご利用ください
@@ -9,7 +9,7 @@ $tenantName = "XXXXXXXXXX.onmicrosoft.com"                  #テナント名
 #######################
 
 ###### 変更箇所 2 ######
-# ※ $postBody 内の callbackUri, displayName, id, tenantId 部分をお客様環境のテナント情報、対象ユーザー情報に置き換えてご利用ください
+# ※ $postBody 内の callbackUri, displayName, id, tenantId 部分を実際の環境のテナント情報、対象ユーザー情報に置き換えてご利用ください
 
 $postBody = @'
 {

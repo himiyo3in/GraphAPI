@@ -1,4 +1,4 @@
-# 変更箇所 1, 2 をお客様環境に合わせて設定ください
+# 変更箇所 1, 2 を環境に合わせて設定ください
 
 ###### 変更箇所 1 ######
 $clientId = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"        #アプリケーションID
@@ -10,7 +10,7 @@ $tenantName = "XXXXXXXXXX.onmicrosoft.com"                  #テナント名
 $postBody = @'
 {
    "template@odata.bind":"https://graph.microsoft.com/v1.0/teamsTemplates('standard')",
-   "displayName":"SampleTeam_1216",
+   "displayName":"SampleTeam_01",
    "description":"Sample Team’s Description",
    "members":[
       {
